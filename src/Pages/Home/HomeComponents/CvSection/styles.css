@@ -1,0 +1,13 @@
+.dKOpLh {
+    position: relative;
+}
+
+.dKOpLh::after {
+    position: absolute;
+    content: "";
+    inset: 0px 0px 0px 50%;
+    background-image: url('../../../../assets/div.png'); 
+    background-repeat: repeat;
+    background-size: 100%;
+    z-index: 0; 
+}
