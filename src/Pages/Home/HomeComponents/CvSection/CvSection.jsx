@@ -16,7 +16,7 @@ const CvSection = () => {
             </div>
 
             <div className="relative w-[50%] bg-gray-100 rounded-xl p-10 dKOpLh">
-                <h1 className="relative z-10 text-2xl mb-3">Upload your Resume</h1>
+                <h1 className="relative z-10 text-2xl mb-3">Post About Job</h1>
                 <p className="relative z-10 mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
                 <div className='w-5'>
                     <div className='w-12 h-12 bg-green-400 rounded-full flex items-center justify-center'>
