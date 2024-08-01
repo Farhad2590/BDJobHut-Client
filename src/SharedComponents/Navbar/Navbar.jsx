@@ -1,20 +1,33 @@
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { Bars3BottomRightIcon, XMarkIcon } from "@heroicons/react/24/solid";
-import logo from "../../assets/Jobhurt-logo.png"
-
+import logo from "../../assets/Jobhurt-logo.png";
 
 const Navbar = () => {
-  const Links = [
+  const providerLink = [
     { name: "Home", route: "/" },
+    { name: "Post a Job", route: "/post-job" },
+    { name: "Manage Jobs", route: "/manage-jobs" },
+    { name: "Company Profile", route: "/company-profile" },
+    { name: "Application List", route: "/application-list" },
   ];
+
+  // const seekersLink = [
+  //   { name: "Home", route: "/" },
+  //   { name: "All Jobs", route: "/all-jobs" },
+  //   { name: "Applied Jobs", route: "/applied-jobs" },
+  //   { name: "Contact Us", route: "/contact-us" },
+  // ];
+
   let [open, setOpen] = useState(false);
 
   return (
     <div className="shadow-md w-full fixed z-50">
       <div className="md:flex items-center justify-between bg-white py-3 md:px-10 px-7">
         <div className="font-bold text-2xl cursor-pointer flex items-center gap-1">
-          <Link to="/"><img className="h-12 w-24" src={logo} alt="" /> </Link>
+          <Link to="/">
+            <img className="h-12 w-24" src={logo} alt="" />{" "}
+          </Link>
         </div>
         <div
           onClick={() => setOpen(!open)}
@@ -27,7 +40,7 @@ const Navbar = () => {
             open ? "top-12" : "top-[-490px]"
           }`}
         >
-          {Links.map((link, index) => (
+          {providerLink.map((link, index) => (
             <li
               key={index}
               className="md:ml-8 md:my-0 my-7 font-semibold hover:text-blue-200"

@@ -4,10 +4,12 @@ import Navbar from "../SharedComponents/Navbar/Navbar";
 const Main = () => {
   return (
     <div>
-      <div className="h-16 mb-2 fixed z-10">
+      <div className="h-16 mb-4  z-10">
         <Navbar></Navbar>
       </div>
-      <Outlet></Outlet>
+      <div className="container mx-auto">
+        <Outlet></Outlet>
+      </div>
     </div>
   );
 };
