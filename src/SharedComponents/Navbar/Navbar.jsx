@@ -1,85 +1,58 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { Bars3BottomRightIcon, XMarkIcon } from "@heroicons/react/24/solid";
 import logo from "../../assets/Jobhurt-logo.png"
+
+
 const Navbar = () => {
-    const navs = <>
-        <li><a>Item 1</a></li>
-        <li><a>Item 2</a></li>
-        <li><a>Item 3</a></li>
-    </>
+  const Links = [
+    { name: "Home", route: "/" },
+  ];
+  let [open, setOpen] = useState(false);
 
-
-    return (
-        <div className="navbar">
-            <div className="navbar-start">
-                <div className="dropdown">
-                    <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="h-5 w-5"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="2"
-                                d="M4 6h16M4 12h8m-8 6h16" />
-                        </svg>
-                    </div>
-                    <ul
-                        tabIndex={0}
-                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                        {navs}
-                    </ul>
-                </div>
-                <div>
-                    <img className="w-32" src={logo} alt="" />
-                </div>
-            </div>
-
-            <div className="navbar-end">
-                <div className=" hidden lg:flex">
-                    <ul className="menu menu-horizontal px-1">
-                        {navs}
-                    </ul>
-                </div>
-
-                {/* Join us Button If not Logged in 
-                if Logged in Show Avatar And Logout Button */}
-
-                <div className="">
-                    <Link to="/login">
-                        <button className="btn bg-green-400 text-white hover:border border-green-400">
-                            Join Us
-                        </button>
-                    </Link>
-
-                    {/* <div className="dropdown dropdown-end">
-                            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                                <div className="w-10 rounded-full">
-                                    <img
-                                        alt="User Avatar"
-                                        src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-                                </div>
-                            </div>
-                            <ul
-                                tabIndex={0}
-                                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                                <li>
-                                    <a className="justify-between">
-                                        Profile
-                                        <span className="badge">New</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a onClick={handleLogout}>Logout</a>
-                                </li>
-                            </ul>
-                        </div> */}
-                </div>
-            </div>
+  return (
+    <div className="shadow-md w-full fixed z-50">
+      <div className="md:flex items-center justify-between bg-white py-3 md:px-10 px-7">
+        <div className="font-bold text-2xl cursor-pointer flex items-center gap-1">
+          <Link to="/"><img className="h-12 w-24" src={logo} alt="" /> </Link>
         </div>
-    );
+        <div
+          onClick={() => setOpen(!open)}
+          className="absolute right-8 top-6 cursor-pointer md:hidden w-7 h-7"
+        >
+          {open ? <XMarkIcon /> : <Bars3BottomRightIcon />}
+        </div>
+        <ul
+          className={`md:flex md:items-center md:pb-0 pb-12 absolute md:static bg-white md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in ${
+            open ? "top-12" : "top-[-490px]"
+          }`}
+        >
+          {Links.map((link, index) => (
+            <li
+              key={index}
+              className="md:ml-8 md:my-0 my-7 font-semibold hover:text-blue-200"
+            >
+              <NavLink
+                to={link.route}
+                key={index}
+                className={({ isActive, isPending }) => (
+                  isPending ? "" : "", isActive ? "text-blue-200" : ""
+                )}
+              >
+                {link.name}
+              </NavLink>
+            </li>
+          ))}
+          <Link
+            className=" bg-blue-600 text-white md:ml-8 font-semibold px-3 py-1 rounded duration-500 md:static hover:bg-blue-400"
+            to="/login"
+          >
+            Login
+          </Link>
+        </ul>
+      </div>
+    </div>
+  );
 };
 
 export default Navbar;
