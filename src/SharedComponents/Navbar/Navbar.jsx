@@ -22,8 +22,8 @@ const Navbar = () => {
   let [open, setOpen] = useState(false);
 
   return (
-    <div className="shadow-md w-full fixed z-50">
-      <div className="md:flex items-center justify-between bg-white py-3 md:px-10 px-7">
+    <div className=" w-full z-50">
+      <div className="md:flex items-center justify-between py-3 bg-[#fbf7ed]  md:px-10 px-7">
         <div className="font-bold text-2xl cursor-pointer flex items-center gap-1">
           <Link to="/">
             <img className="h-12 w-24" src={logo} alt="" />{" "}
@@ -36,20 +36,20 @@ const Navbar = () => {
           {open ? <XMarkIcon /> : <Bars3BottomRightIcon />}
         </div>
         <ul
-          className={`md:flex md:items-center md:pb-0 pb-12 absolute md:static bg-white md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in ${
+          className={`md:flex md:items-center md:pb-0 pb-12 absolute md:static md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in ${
             open ? "top-12" : "top-[-490px]"
           }`}
         >
           {providerLink.map((link, index) => (
             <li
               key={index}
-              className="md:ml-8 md:my-0 my-7 font-semibold hover:text-blue-200"
+              className="md:ml-8 md:my-0 my-7 font-semibold hover:text-[#289278]"
             >
               <NavLink
                 to={link.route}
                 key={index}
                 className={({ isActive, isPending }) => (
-                  isPending ? "" : "", isActive ? "text-blue-200" : ""
+                  isPending ? "" : "", isActive ? "text-[#008060]" : ""
                 )}
               >
                 {link.name}
@@ -57,7 +57,7 @@ const Navbar = () => {
             </li>
           ))}
           <Link
-            className=" bg-blue-600 text-white md:ml-8 font-semibold px-3 py-1 rounded duration-500 md:static hover:bg-blue-400"
+            className=" bg-[#008060] text-white md:ml-8 font-semibold px-3 py-1 rounded duration-500 md:static hover:bg-blue-400"
             to="/login"
           >
             Login

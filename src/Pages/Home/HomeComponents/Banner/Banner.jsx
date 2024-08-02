@@ -6,7 +6,7 @@ import { CiLocationOn } from "react-icons/ci";
 const Banner = () => {
 
     return (
-        <div className="bg-green-100 py-32">
+        <div className="bg-[#fbf7ed] py-32">
             <div className="flex flex-col">
                 <div className="flex items-center">
                     <div className="flex-grow">
@@ -32,7 +32,7 @@ const Banner = () => {
                                 />
                             </div>
                             <button
-                                className="ml-4 px-4 py-2 bg-green-400 text-white rounded-md"
+                                className="ml-4 px-4 py-2 bg-[#289278] text-white rounded-md"
                                 aria-label="Search"
                             >
                                 Search

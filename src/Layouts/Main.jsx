@@ -4,7 +4,7 @@ import Navbar from "../SharedComponents/Navbar/Navbar";
 const Main = () => {
   return (
     <div>
-      <div className="h-16 mb-4  z-10">
+      <div className=" z-10">
         <Navbar></Navbar>
       </div>
       <div className="container mx-auto">
