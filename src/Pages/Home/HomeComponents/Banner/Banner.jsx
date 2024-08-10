@@ -1,5 +1,6 @@
 import { CiSearch } from "react-icons/ci";
 import { CiLocationOn } from "react-icons/ci";
+import Button from "../../../../SharedComponents/Button/Button";
 
 
 
@@ -31,12 +32,13 @@ const Banner = () => {
                                     placeholder="Town, city or postcode"
                                 />
                             </div>
-                            <button
+                            {/* <button
                                 className="ml-4 px-4 py-2 bg-[#289278] text-white rounded-md"
                                 aria-label="Search"
                             >
                                 Search
-                            </button>
+                            </button> */}
+                            <Button className="ml-4 px-4 py-2" link="" label="Search"></Button>
                         </div>
                     </div>
 
