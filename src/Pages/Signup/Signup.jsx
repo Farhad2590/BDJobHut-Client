@@ -7,7 +7,7 @@ const Signup = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
+    
   };
   return (
     <div className="flex items-center justify-center min-h-screen bg-[#289278]">
