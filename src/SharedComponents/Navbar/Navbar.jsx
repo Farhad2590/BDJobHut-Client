@@ -1,9 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { Bars3BottomRightIcon, XMarkIcon } from "@heroicons/react/24/solid";
 import logo from "../../assets/Jobhurt-logo.png";
+import { AuthContext } from "../../provider/AuthProvider";
+import { toast } from "react-toastify";
 
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
+
   const providerLink = [
     { name: "Home", route: "/" },
     { name: "Post a Job", route: "/post-job" },
@@ -12,12 +16,9 @@ const Navbar = () => {
     { name: "Application List", route: "/application-list" },
   ];
 
-  // const seekersLink = [
-  //   { name: "Home", route: "/" },
-  //   { name: "All Jobs", route: "/all-jobs" },
-  //   { name: "Applied Jobs", route: "/applied-jobs" },
-  //   { name: "Contact Us", route: "/contact-us" },
-  // ];
+  const handleLogOut = () => {
+    logOut().then(() => toast.success("Logout Successfully"));
+  };
 
   let [open, setOpen] = useState(false);
 
@@ -56,12 +57,21 @@ const Navbar = () => {
               </NavLink>
             </li>
           ))}
-          <Link
-            className=" bg-[#008060] text-white md:ml-8 font-semibold px-3 py-1 rounded duration-500 md:static hover:bg-blue-400"
-            to="/login"
-          >
-            Login
-          </Link>
+          {user ? (
+            <button
+              className=" bg-[#008060] text-white md:ml-8 font-semibold px-3 py-1 rounded duration-500 md:static hover:bg-blue-400"
+              onClick={handleLogOut}
+            >
+              Logout
+            </button>
+          ) : (
+            <Link
+              className=" bg-[#008060] text-white md:ml-8 font-semibold px-3 py-1 rounded duration-500 md:static hover:bg-blue-400"
+              to="/login"
+            >
+              Login
+            </Link>
+          )}
         </ul>
       </div>
     </div>
