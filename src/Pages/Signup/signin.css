@@ -1,0 +1,27 @@
+.perspective-1500 {
+    perspective: 1500px;
+  }
+  
+  .rotate-y-180 {
+    transform: rotateY(180deg);
+  }
+  
+  .flex > div {
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+  }
+  
+  #div1,
+  #div2 {
+    position: absolute;
+    backface-visibility: hidden;
+  }
+  
+  #div1 {
+    transform: rotateY(0deg);
+  }
+  
+  #div2 {
+    transform: rotateY(180deg);
+  }
+  

@@ -8,6 +8,9 @@ import PostJob from "../Pages/PostJob/PostJob";
 import ManageJobs from "../Pages/ManageJobs/ManageJobs";
 import CompanyProfile from "../Pages/CompanyProfile/CompanyProfile";
 import ApplicationList from "../Pages/ApplicationList/ApplicationList";
+import Signin from "../Pages/Signin/Signin";
+import Signup from "../Pages/Signup/Signup";
+// import App from "../SharedComponents/App/App";
 
 export const router = createBrowserRouter([
   {
@@ -48,4 +51,7 @@ export const router = createBrowserRouter([
       },
     ],
   },
+    // { path: '/login', element: <App /> },
+  { path: '/login', element: <Signin /> },
+  { path: '/signup', element: <Signup /> },
 ]);
